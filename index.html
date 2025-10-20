@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevBridge — Equity & Vesting Framework</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #24292e;
+            background-color: #f6f8fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            color: #0366d6;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #0366d6;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0366d6;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e1e4e8;
+        }
+
+        h3 {
+            color: #24292e;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+
+        .metadata {
+            background-color: #f6f8fa;
+            padding: 15px;
+            border-left: 4px solid #0366d6;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        .metadata strong {
+            color: #0366d6;
+        }
+
+        blockquote {
+            background-color: #fffbdd;
+            border-left: 4px solid #ffd33d;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #24292e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #d1d5da;
+        }
+
+        th {
+            background-color: #f6f8fa;
+            font-weight: 600;
+            color: #24292e;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f6f8fa;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        code {
+            background-color: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li:before {
+            content: "☐ ";
+            margin-right: 8px;
+            color: #0366d6;
+        }
+
+        .emoji-section {
+            font-size: 1.2em;
+        }
+
+        .highlight-box {
+            background-color: #e7f3ff;
+            border: 1px solid #0366d6;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: #0366d6;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e1e4e8;
+            margin: 40px 0;
+        }
+
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #e1e4e8;
+            text-align: center;
+            color: #586069;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RevBridge — Equity & Vesting Framework</h1>
+
+        <div class="metadata">
+            <strong>Versão:</strong> 1.0 | <strong>Data:</strong> 20/10/2025 | <strong>Status:</strong> Draft<br>
+            <strong>Autor:</strong> Juliano Scapin | <strong>Empresa:</strong> RevBridge Tecnologia Ltda.
+        </div>
+
+        <blockquote>
+            Framework completo de estrutura societária, vesting e stock options da RevBridge.
+            Inclui tranches (founders, co-founders e founding team), cláusulas, cronogramas e boas práticas.
+            Baseado em mentoria com Adv. Diogo Longhi (WL Startups) e experiência prática de Juliano Dutra.
+        </blockquote>
+
+        <hr>
+
+        <h2>📘 Objetivo</h2>
+        <p>
+            Estabelecer as diretrizes de distribuição de participação societária (equity) via <strong>contratos de vesting e stock option (SOP)</strong>,
+            criando alinhamento de longo prazo, retenção de talentos e proteção contra diluição prematura.
+        </p>
+        <p>
+            A RevBridge adota uma estrutura em <strong>tranches</strong>, refletindo o grau de contribuição, risco e envolvimento de cada grupo — founders, co-founders e founding team.
+        </p>
+
+        <div class="highlight-box">
+            <h4>Por que Stock Option?</h4>
+            <p>
+                Como destacado na mentoria: <em>"Stock Option é uma alavanca de crescimento por meio de sócios. É um diferencial competitivo que permite
+                trazer talentos extraordinários mesmo sem ter orçamento para competir com grandes empresas. É virar o jogo a nosso favor."</em>
+            </p>
+        </div>
+
+        <hr>
+
+        <h2>🧭 Estrutura de Tranches</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nível</th>
+                    <th>Nº Pessoas</th>
+                    <th>% por Pessoa</th>
+                    <th>% Total</th>
+                    <th>Cliff</th>
+                    <th>Vesting</th>
+                    <th>Tipo de Contrato</th>
+                    <th>Salário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Founder</strong></td>
+                    <td>4</td>
+                    <td>20%</td>
+                    <td>80%</td>
+                    <td>—</td>
+                    <td>4 anos</td>
+                    <td>Vesting <strong>por dentro</strong> (Acordo de Sócios)</td>
+                    <td>❌ Sem salário</td>
+                </tr>
+                <tr>
+                    <td><strong>Co-founder</strong></td>
+                    <td>5</td>
+                    <td>2%</td>
+                    <td>10%</td>
+                    <td>1 ano</td>
+                    <td>4 anos</td>
+                    <td>Vesting <strong>por fora</strong> (Contrato de Opção)</td>
+                    <td>❌ Sem salário</td>
+                </tr>
+                <tr>
+                    <td><strong>Founding Team</strong></td>
+                    <td>10</td>
+                    <td>1%</td>
+                    <td>10%</td>
+                    <td>1 ano</td>
+                    <td>4 anos</td>
+                    <td>Vesting <strong>por fora</strong> (SOP Padronizado)</td>
+                    <td>✅ Com salário</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>📊 Total Equity:</strong> 100%</p>
+        <p><strong>💡 Reserva recomendada:</strong> Considere reservar 5-10% adicional para advisors, conselheiros e futuras contratações estratégicas.</p>
+
+        <hr>
+
+        <h2>⚙️ Estrutura Jurídica Recomendada</h2>
+
+        <h3>1. Founders (20%) — Vesting por Dentro</h3>
+        <p>Vesting <strong>por dentro do CNPJ</strong> — regido pelo <strong>Acordo de Sócios</strong>.</p>
+        <p>Participação inicial já formalizada no contrato social. Sem salário, baseando-se em contribuição estratégica e intelectual.</p>
+
+        <p><strong>Principais cláusulas:</strong></p>
+        <ul>
+            <li>Vesting linear de 4 anos</li>
+            <li>Cotas não adquiridas retornam ao founders pool</li>
+            <li>Buy-back automático em caso de saída antes do vesting</li>
+            <li>Obrigações de contribuição operacional e estratégica contínua</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4>Como funciona na prática:</h4>
+            <p>
+                Os founders começam com 20% cada, já dentro do CNPJ. Se um founder sair no meio do período (ex: no ano 2 de 4),
+                ele recebe apenas proporcional ao tempo contribuído (50% do valor de suas cotas). O restante retorna aos founders remanescentes,
+                evitando "dead equity" (participação morta que não contribui).
+            </p>
+        </div>
+
+        <h3>2. Co-founders (2%) — Vesting por Fora</h3>
+        <p>Vesting <strong>por fora do CNPJ</strong>, via Contrato de Opção de Compra de Participação (SOP).</p>
+        <p>Cliff de 12 meses + vesting linear nos 36 meses seguintes. Sem salário (modelo de sweat equity).</p>
+
+        <p><strong>Principais cláusulas:</strong></p>
+        <ul>
+            <li>25% das opções adquiridas após 12 meses (cliff)</li>
+            <li>Restante 75% adquirido linearmente ao longo de 36 meses</li>
+            <li>Preço de exercício: R$ 1,00 por cota (strike simbólico com onerosidade mínima)</li>
+            <li>Relação não empregatícia; contribuição autônoma e estratégica</li>
+            <li>Saída antes do cliff → perda total das opções</li>
+            <li>Saída após o cliff → mantém percentual adquirido até a data da saída</li>
+        </ul>
+
+        <p><strong>Exemplo cronológico:</strong></p>
+        <ul>
+            <li><strong>2025:</strong> Assina contrato de opção (fora do CNPJ), começa a contribuir</li>
+            <li><strong>2026:</strong> Completa cliff de 1 ano → adquire direito a 0.5% (25%)</li>
+            <li><strong>2027-2029:</strong> Adquire 0.25% por ano linearmente</li>
+            <li><strong>2029:</strong> Pode exercer o direito, pagar R$ 1,00 simbólico e entrar no CNPJ com 2%</li>
+        </ul>
+
+        <h3>3. Founding Team (1%) — Vesting por Fora com Salário</h3>
+        <p>Vesting <strong>por fora do CNPJ</strong>, via SOP padronizado.</p>
+        <p>Colaboradores com vínculo CLT ou PJ, com SOP rodando em paralelo. Foco em retenção e engajamento de talentos-chave.</p>
+
+        <p><strong>Principais cláusulas:</strong></p>
+        <ul>
+            <li>Cliff de 12 meses e vesting linear em 36 meses</li>
+            <li>Strike simbólico (R$ 1,00) ou compensação via bônus</li>
+            <li>KPIs e metas documentadas e revisadas trimestralmente</li>
+            <li>Cláusulas de confidencialidade, não concorrência e cessão de IP</li>
+        </ul>
+
+        <hr>
+
+        <h2>⚖️ Cláusulas-Padrão (Aplicáveis a Todos os Planos)</h2>
+
+        <h3>🧩 Cliff (Período de Carência)</h3>
+        <p><strong>O que é:</strong> Período inicial onde o participante contribui mas não adquire participação. Se sair (voluntária ou involuntariamente), sai sem nada.</p>
+        <p><strong>Duração padrão:</strong> 12 meses (representa 20-25% do período total de vesting).</p>
+        <p><strong>Objetivo:</strong> Proteger a empresa de pessoas que não performam ou que saem rapidamente.</p>
+
+        <h3>⚖️ Saída Antecipada</h3>
+        <ul>
+            <li><strong>Antes do cliff (0-12 meses):</strong> Perda total, sem direito a nada</li>
+            <li><strong>Após o cliff (12+ meses):</strong> Mantém percentual já adquirido, perde o restante</li>
+            <li><strong>Exemplo:</strong> Saiu no mês 30 de 48 = mantém 62.5% do prometido, perde 37.5%</li>
+        </ul>
+
+        <h3>💰 Strike / Onerosidade</h3>
+        <p>Preço de exercício: <strong>R$ 1,00 por cota</strong>.</p>
+        <p><strong>Por quê?</strong> Reduz dois riscos:</p>
+        <ol>
+            <li><strong>Trabalhista:</strong> Se for "de graça", pode ser considerado verba remuneratória (INSS, FGTS)</li>
+            <li><strong>Tributário:</strong> Sem onerosidade, pode ser visto como doação (ITCMD)</li>
+        </ol>
+
+        <hr>
+
+        <h2>🧮 Cap Table de Referência</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>% Total</th>
+                    <th>Tipo de Vesting</th>
+                    <th>Nº Pessoas</th>
+                    <th>% por Pessoa</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Founders</td>
+                    <td>80%</td>
+                    <td>Por dentro</td>
+                    <td>4</td>
+                    <td>20%</td>
+                    <td>Sem salário</td>
+                </tr>
+                <tr>
+                    <td>Co-founders</td>
+                    <td>10%</td>
+                    <td>Por fora</td>
+                    <td>5</td>
+                    <td>2%</td>
+                    <td>Sem salário</td>
+                </tr>
+                <tr>
+                    <td>Founding Team</td>
+                    <td>10%</td>
+                    <td>Por fora</td>
+                    <td>10</td>
+                    <td>1%</td>
+                    <td>Com salário</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>🟩 <strong>Total: 100%</strong></p>
+        <p>🟨 Cotas revertidas retornam ao founders pool</p>
+        <p>🟦 Reserva sugerida: 5-10% para advisors e futuras contratações</p>
+
+        <hr>
+
+        <h2>🧩 Boas Práticas de Governança</h2>
+
+        <h3>1. Três planos independentes</h3>
+        <p>Crie documentos separados para founders, co-founders e founding team. Evita conflitos de cláusulas e facilita auditoria por investidores.</p>
+
+        <h3>2. Evidências de performance (CRÍTICO)</h3>
+        <blockquote>
+            "O que mais dá briga é: funcionário fala que está cumprindo, empresa fala que não. E não tem como provar - só WhatsApp, sem registro formal."
+        </blockquote>
+        <p><strong>Registre sistematicamente:</strong></p>
+        <ul>
+            <li>Metas e KPIs acordados (início de cada ciclo)</li>
+            <li>Entregas realizadas vs. esperadas (ClickUp, Jira, etc)</li>
+            <li>Feedbacks e 1-on-1s (e-mail, Slack, Google Docs)</li>
+            <li>Performance reviews trimestrais</li>
+        </ul>
+
+        <h3>3. Controle de vesting</h3>
+        <p>Use planilha ou dashboard com:</p>
+        <ul>
+            <li>Nome completo e CPF</li>
+            <li>Data de início do vesting</li>
+            <li>Data do cliff (mês 12)</li>
+            <li>Data final do vesting (mês 48)</li>
+            <li>% adquirido até hoje</li>
+            <li>% remanescente</li>
+            <li>Status (ativo, congelado, exercido, cancelado)</li>
+            <li>Última atualização</li>
+        </ul>
+
+        <hr>
+
+        <h2>📈 Cronograma de Vesting — Exemplo Detalhado</h2>
+
+        <h3>Founding Team Member (1% ao longo de 48 meses)</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Evento</th>
+                    <th>% Adquirido Mensal</th>
+                    <th>% Acumulado</th>
+                    <th>Observação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0-11</td>
+                    <td>Cliff</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>Período de carência - se sair, perde tudo</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Fim do Cliff</td>
+                    <td>0.25%</td>
+                    <td>0.25%</td>
+                    <td>Adquire 25% do total (1/4)</td>
+                </tr>
+                <tr>
+                    <td>13-24</td>
+                    <td>Vesting Linear</td>
+                    <td>0.0208% / mês</td>
+                    <td>0.50%</td>
+                    <td>Progresso mensal constante</td>
+                </tr>
+                <tr>
+                    <td>25-36</td>
+                    <td>Vesting Linear</td>
+                    <td>0.0208% / mês</td>
+                    <td>0.75%</td>
+                    <td>Consolidação parcial</td>
+                </tr>
+                <tr>
+                    <td>37-48</td>
+                    <td>Vesting Linear</td>
+                    <td>0.0208% / mês</td>
+                    <td>1.00%</td>
+                    <td>Vesting completo</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Cálculo:</strong></p>
+        <ul>
+            <li>Cliff (12 meses) = 25% = 0.25%</li>
+            <li>Vesting linear (36 meses) = 75% = 0.75%</li>
+            <li>0.75% ÷ 36 meses = 0.0208% por mês</li>
+        </ul>
+
+        <p><strong>Exemplo de saída antecipada:</strong></p>
+        <p>Sai no mês 30: Adquiriu 0.25% (cliff) + 18 meses × 0.0208% = <strong>0.625% mantido</strong>, perde 0.375%</p>
+
+        <hr>
+
+        <h2>🎯 Checklist Final: Está Pronto para Implementar?</h2>
+
+        <h3>Documentação</h3>
+        <ul class="checklist">
+            <li>Acordo de Sócios atualizado com cláusulas de vesting</li>
+            <li>Template de MOU preparado</li>
+            <li>Contrato de Stock Option (vesting por fora) revisado por advogado</li>
+            <li>Contrato Social permite entrada de novos sócios</li>
+        </ul>
+
+        <h3>Estrutura</h3>
+        <ul class="checklist">
+            <li>Cap table definido (% para cada tranche)</li>
+            <li>Pool de advisors reservado (5-10%)</li>
+            <li>Política de valuation/strike definida</li>
+            <li>Procedimento de buy-back estabelecido</li>
+        </ul>
+
+        <h3>Operacional</h3>
+        <ul class="checklist">
+            <li>Planilha de controle de vesting configurada</li>
+            <li>Sistema de registro de performance escolhido (ClickUp, Notion, etc)</li>
+            <li>Processo de 1-on-1 e review trimestral definido</li>
+            <li>Template de KPIs por função preparado</li>
+        </ul>
+
+        <h3>Jurídico</h3>
+        <ul class="checklist">
+            <li>Advogado revisou todos os documentos</li>
+            <li>Cláusulas de IP, não concorrência e confidencialidade validadas</li>
+            <li>Processo de exclusão de sócio mapeado</li>
+            <li>Procedimento de Reunião de Sócios formalizado</li>
+        </ul>
+
+        <h3>Comunicação</h3>
+        <ul class="checklist">
+            <li>Founders alinhados sobre a política</li>
+            <li>Proposta (MOU) pronta para apresentar</li>
+            <li>Reunião de apresentação agendada com candidatos</li>
+            <li>Processo de onboarding definido</li>
+        </ul>
+
+        <hr>
+
+        <div class="footer">
+            <h2>⚖️ Disclaimer Legal</h2>
+            <p>
+                Este documento serve como framework orientativo para a estruturação do programa de Stock Options da RevBridge.
+                NÃO substitui consultoria jurídica profissional especializada.
+            </p>
+            <p>
+                Todos os contratos, acordos e cláusulas devem ser revisados por advogado especializado em direito societário e startups antes da implementação.
+            </p>
+            <p style="margin-top: 30px;">
+                © 2025 RevBridge Tecnologia Ltda. — Todos os direitos reservados.<br>
+                <strong>Documento Confidencial</strong> — Distribuição restrita aos sócios e conselheiros da RevBridge.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
