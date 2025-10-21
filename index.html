@@ -2,7 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Framework completo de Stock Options e Vesting para startups brasileiras. Modelo por tranches com cláusulas, cronogramas e boas práticas.">
+    <meta name="theme-color" content="#0366d6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Equity & Vesting Framework — SOP Model by Tranches</title>
     <style>
         * {
@@ -187,6 +191,8 @@
             color: #24292e;
             user-select: none;
             transition: background-color 0.3s ease;
+            -webkit-tap-highlight-color: rgba(3, 102, 214, 0.1);
+            touch-action: manipulation;
         }
 
         .faq-question:hover {
@@ -235,33 +241,121 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
             .container {
-                padding: 20px;
+                padding: 20px 15px;
+                border-radius: 0;
             }
 
             h1 {
-                font-size: 2em;
+                font-size: 1.75em;
+                line-height: 1.3;
+                word-break: break-word;
             }
 
             h2 {
-                font-size: 1.5em;
+                font-size: 1.4em;
+                margin-top: 30px;
             }
 
-            table {
-                font-size: 0.85em;
+            h3 {
+                font-size: 1.2em;
+                margin-top: 20px;
             }
 
-            th, td {
-                padding: 8px;
-            }
-
-            .faq-question {
-                padding: 12px 15px;
+            p, li {
                 font-size: 0.95em;
             }
 
-            .faq-answer.active {
+            table {
+                font-size: 0.75em;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                white-space: nowrap;
+            }
+
+            th, td {
+                padding: 6px 4px;
+                font-size: 0.9em;
+            }
+
+            .metadata {
+                padding: 12px;
+                font-size: 0.85em;
+            }
+
+            blockquote {
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+
+            .highlight-box {
                 padding: 15px;
+                margin: 15px 0;
+            }
+
+            .highlight-box h4 {
+                font-size: 1em;
+            }
+
+            .faq-question {
+                padding: 12px 12px;
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+
+            .faq-question span:first-child {
+                padding-right: 10px;
+                flex: 1;
+            }
+
+            .faq-icon {
+                font-size: 1em;
+                flex-shrink: 0;
+            }
+
+            .faq-answer.active {
+                padding: 15px 12px;
+            }
+
+            .faq-answer p, .faq-answer li {
+                font-size: 0.9em;
+            }
+
+            ul, ol {
+                margin-left: 20px;
+            }
+
+            .checklist {
+                margin-left: 5px;
+            }
+        }
+
+        /* Extra small devices (phones, less than 576px) */
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.25em;
+            }
+
+            table {
+                font-size: 0.7em;
+            }
+
+            .faq-question {
+                font-size: 0.85em;
+                padding: 10px;
+            }
+
+            .faq-answer.active {
+                padding: 12px 10px;
             }
         }
     </style>
