@@ -164,6 +164,76 @@
             font-size: 0.9em;
         }
 
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            background-color: #f6f8fa;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #24292e;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #e7f3ff;
+        }
+
+        .faq-question.active {
+            background-color: #0366d6;
+            color: white;
+        }
+
+        .faq-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            color: #0366d6;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: white;
+            padding: 0 20px;
+        }
+
+        .faq-answer.active {
+            max-height: 2000px;
+            padding: 20px;
+        }
+
+        .faq-answer p {
+            margin-bottom: 10px;
+        }
+
+        .faq-answer ul, .faq-answer ol {
+            margin: 10px 0 10px 20px;
+        }
+
+        .faq-answer blockquote {
+            margin: 15px 0;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -183,6 +253,15 @@
 
             th, td {
                 padding: 8px;
+            }
+
+            .faq-question {
+                padding: 12px 15px;
+                font-size: 0.95em;
+            }
+
+            .faq-answer.active {
+                padding: 15px;
             }
         }
     </style>
@@ -562,170 +641,325 @@
         <hr>
 
         <h2>❓ FAQ — Perguntas Frequentes</h2>
+        <p style="margin-bottom: 20px; color: #586069;">Clique nas perguntas para expandir as respostas</p>
 
-        <h3>1. A empresa precisa ser S.A. ou pode ser Ltda?</h3>
-        <p><strong>Resposta:</strong> Pode ser Ltda. A maioria das startups brasileiras são Ltda e funcionam perfeitamente com SOP. S.A. facilita um pouco a transferência de ações, mas Ltda é suficiente e menos burocrática no início.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>1. A empresa precisa ser S.A. ou pode ser Ltda?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Pode ser Ltda. A maioria das startups brasileiras são Ltda e funcionam perfeitamente com SOP. S.A. facilita um pouco a transferência de ações, mas Ltda é suficiente e menos burocrática no início.</p>
+            </div>
+        </div>
 
-        <h3>2. Durante o vesting, a pessoa pode receber salário?</h3>
-        <p><strong>Resposta:</strong> Sim. São contratos paralelos e independentes:</p>
-        <ul>
-            <li>Pode ser CLT + vesting por fora</li>
-            <li>Pode ser PJ + vesting por fora</li>
-            <li>Pode ser só vesting (sem remuneração)</li>
-        </ul>
-        <p>O vesting roda independente da relação de trabalho.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>2. Durante o vesting, a pessoa pode receber salário?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Sim. São contratos paralelos e independentes:</p>
+                <ul>
+                    <li>Pode ser CLT + vesting por fora</li>
+                    <li>Pode ser PJ + vesting por fora</li>
+                    <li>Pode ser só vesting (sem remuneração)</li>
+                </ul>
+                <p>O vesting roda independente da relação de trabalho.</p>
+            </div>
+        </div>
 
-        <h3>3. Quem está em vesting por fora recebe dividendos?</h3>
-        <p><strong>Resposta:</strong> NÃO. Dividendo é pago apenas a quem é sócio (está no CNPJ). Enquanto estiver "por fora", não recebe lucro distribuído.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>3. Quem está em vesting por fora recebe dividendos?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> NÃO. Dividendo é pago apenas a quem é sócio (está no CNPJ). Enquanto estiver "por fora", não recebe lucro distribuído.</p>
+            </div>
+        </div>
 
-        <h3>4. Como calcular o preço de exercício (strike)?</h3>
-        <p><strong>Resposta:</strong> Use métricas auditáveis:</p>
-        <ul>
-            <li>1-2x EBITDA anual</li>
-            <li>1-1.5x faturamento anual</li>
-            <li>Valor patrimonial + ágio</li>
-        </ul>
-        <p>Depois aplique desconto (30-50%) para tornar acessível. Mínimo: R$ 1,00 simbólico.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>4. Como calcular o preço de exercício (strike)?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Use métricas auditáveis:</p>
+                <ul>
+                    <li>1-2x EBITDA anual</li>
+                    <li>1-1.5x faturamento anual</li>
+                    <li>Valor patrimonial + ágio</li>
+                </ul>
+                <p>Depois aplique desconto (30-50%) para tornar acessível. Mínimo: R$ 1,00 simbólico.</p>
+            </div>
+        </div>
 
-        <h3>5. O que acontece se a pessoa não pagar o strike?</h3>
-        <p><strong>Resposta:</strong> Depende do contrato. Opções:</p>
-        <ul>
-            <li>Parcelamento automático (dedução de futuros bônus)</li>
-            <li>Prazo para pagamento (ex: 90 dias após exercício)</li>
-            <li>Perda do direito se não pagar no prazo</li>
-        </ul>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>5. O que acontece se a pessoa não pagar o strike?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Depende do contrato. Opções:</p>
+                <ul>
+                    <li>Parcelamento automático (dedução de futuros bônus)</li>
+                    <li>Prazo para pagamento (ex: 90 dias após exercício)</li>
+                    <li>Perda do direito se não pagar no prazo</li>
+                </ul>
+            </div>
+        </div>
 
-        <h3>6. Posso dispensar o período de cliff?</h3>
-        <p><strong>Resposta:</strong> Sim, não é obrigatório. Mas é altamente recomendado quando você não conhece bem a pessoa ou quer período de teste/adaptação. Pode dispensar para co-founders originais ou pessoas de extrema confiança.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>6. Posso dispensar o período de cliff?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Sim, não é obrigatório. Mas é altamente recomendado quando você não conhece bem a pessoa ou quer período de teste/adaptação. Pode dispensar para co-founders originais ou pessoas de extrema confiança.</p>
+            </div>
+        </div>
 
-        <h3>7. Como proteger Propriedade Intelectual?</h3>
-        <p><strong>Resposta:</strong> Insira cláusula de cessão de IP no contrato:</p>
-        <blockquote>
-            "Todo ativo, código, conteúdo, marca, processo, modelo ou conceito criado em prol da [EMPRESA], durante o período de contribuição, será integralmente cedido à empresa de forma irrevogável, universal e gratuita, incluindo direitos autorais, morais e patrimoniais."
-        </blockquote>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>7. Como proteger Propriedade Intelectual?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Insira cláusula de cessão de IP no contrato:</p>
+                <blockquote>
+                    "Todo ativo, código, conteúdo, marca, processo, modelo ou conceito criado em prol da [EMPRESA], durante o período de contribuição, será integralmente cedido à empresa de forma irrevogável, universal e gratuita, incluindo direitos autorais, morais e patrimoniais."
+                </blockquote>
+            </div>
+        </div>
 
-        <h3>8. Posso fazer vesting antes de abrir CNPJ?</h3>
-        <p><strong>Resposta:</strong> Sim. Pode negociar participação no CNPJ que será criado no futuro. Faz-se um MOU descrevendo % que será concedido, condições de vesting e compromissos. Após abrir o CNPJ, formaliza o contrato.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>8. Posso fazer vesting antes de abrir CNPJ?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Sim. Pode negociar participação no CNPJ que será criado no futuro. Faz-se um MOU descrevendo % que será concedido, condições de vesting e compromissos. Após abrir o CNPJ, formaliza o contrato.</p>
+            </div>
+        </div>
 
-        <h3>9. Como funciona vesting em caso de venda da empresa?</h3>
-        <p><strong>Resposta:</strong> Há duas situações comuns:</p>
-        <p><strong>A) Vesting acelerado:</strong> Contrato prevê que em caso de aquisição/M&A, todo o vesting é acelerado (pessoa recebe 100% imediatamente).</p>
-        <p><strong>B) Exercício no evento:</strong> Pessoa só pode exercer no momento da venda. Entra no CNPJ, vende junto, recebe o delta.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>9. Como funciona vesting em caso de venda da empresa?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Há duas situações comuns:</p>
+                <p><strong>A) Vesting acelerado:</strong> Contrato prevê que em caso de aquisição/M&A, todo o vesting é acelerado (pessoa recebe 100% imediatamente).</p>
+                <p><strong>B) Exercício no evento:</strong> Pessoa só pode exercer no momento da venda. Entra no CNPJ, vende junto, recebe o delta.</p>
+            </div>
+        </div>
 
-        <h3>10. O que é "dead equity" e como evitar?</h3>
-        <p><strong>Resposta:</strong> Dead equity = participação societária de quem não contribui mais.</p>
-        <p><strong>Como evitar:</strong></p>
-        <ol>
-            <li>TODO equity deve ter vesting (até founders)</li>
-            <li>Cláusulas de buy-back para saídas precoces</li>
-            <li>Revisão anual: quem não contribui, negocia saída</li>
-            <li>Previsão de exclusão de sócio por inatividade no Acordo de Sócios</li>
-        </ol>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>10. O que é "dead equity" e como evitar?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Dead equity = participação societária de quem não contribui mais.</p>
+                <p><strong>Como evitar:</strong></p>
+                <ol>
+                    <li>TODO equity deve ter vesting (até founders)</li>
+                    <li>Cláusulas de buy-back para saídas precoces</li>
+                    <li>Revisão anual: quem não contribui, negocia saída</li>
+                    <li>Previsão de exclusão de sócio por inatividade no Acordo de Sócios</li>
+                </ol>
+            </div>
+        </div>
 
-        <h3>11. Não concorrência: por quanto tempo?</h3>
-        <p><strong>Resposta padrão:</strong></p>
-        <ul>
-            <li><strong>Durante vesting:</strong> Total (não pode trabalhar em concorrente)</li>
-            <li><strong>Após saída:</strong> 12 meses de restrição</li>
-        </ul>
-        <p>Seja específico no que é "concorrente". Exemplo: "Não pode atuar em empresas de software B2B SaaS voltado para RevOps no mercado brasileiro"</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>11. Não concorrência: por quanto tempo?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta padrão:</strong></p>
+                <ul>
+                    <li><strong>Durante vesting:</strong> Total (não pode trabalhar em concorrente)</li>
+                    <li><strong>Após saída:</strong> 12 meses de restrição</li>
+                </ul>
+                <p>Seja específico no que é "concorrente". Exemplo: "Não pode atuar em empresas de software B2B SaaS voltado para RevOps no mercado brasileiro"</p>
+            </div>
+        </div>
 
-        <h3>12. Como registrar o vesting na Junta Comercial?</h3>
-        <p><strong>Vesting por fora (SOP):</strong></p>
-        <ul>
-            <li>NÃO registra na Junta</li>
-            <li>É contrato privado entre empresa e participante</li>
-            <li>Só registra se/quando a pessoa exercer e entrar no CNPJ</li>
-        </ul>
-        <p><strong>Vesting por dentro (entre sócios):</strong></p>
-        <ul>
-            <li>NÃO menciona vesting no contrato social (é público)</li>
-            <li>Faz Acordo de Sócios privado mencionando vesting</li>
-            <li>No contrato social, apenas: "Exclusão e compra de cotas conforme Acordo de Sócios"</li>
-        </ul>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>12. Como registrar o vesting na Junta Comercial?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Vesting por fora (SOP):</strong></p>
+                <ul>
+                    <li>NÃO registra na Junta</li>
+                    <li>É contrato privado entre empresa e participante</li>
+                    <li>Só registra se/quando a pessoa exercer e entrar no CNPJ</li>
+                </ul>
+                <p><strong>Vesting por dentro (entre sócios):</strong></p>
+                <ul>
+                    <li>NÃO menciona vesting no contrato social (é público)</li>
+                    <li>Faz Acordo de Sócios privado mencionando vesting</li>
+                    <li>No contrato social, apenas: "Exclusão e compra de cotas conforme Acordo de Sócios"</li>
+                </ul>
+            </div>
+        </div>
 
-        <h3>13. Posso fazer vesting com % variável conforme performance?</h3>
-        <p><strong>Resposta:</strong> Sim, mas seja muito objetivo.</p>
-        <p><strong>Exemplo funcional:</strong></p>
-        <ul>
-            <li>Meta 1: Atingir R$ 2M em vendas = 3%</li>
-            <li>Meta 2: Manter NPS acima de 8.0 = 2%</li>
-            <li>Meta 3: Permanência de 4 anos = 5%</li>
-            <li>Total possível: 10%</li>
-        </ul>
-        <p>Evite metas subjetivas. Combine tempo (objetivo) + KPIs claros.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>13. Posso fazer vesting com % variável conforme performance?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Sim, mas seja muito objetivo.</p>
+                <p><strong>Exemplo funcional:</strong></p>
+                <ul>
+                    <li>Meta 1: Atingir R$ 2M em vendas = 3%</li>
+                    <li>Meta 2: Manter NPS acima de 8.0 = 2%</li>
+                    <li>Meta 3: Permanência de 4 anos = 5%</li>
+                    <li>Total possível: 10%</li>
+                </ul>
+                <p>Evite metas subjetivas. Combine tempo (objetivo) + KPIs claros.</p>
+            </div>
+        </div>
 
-        <h3>14. Como demitir alguém em vesting sem problemas jurídicos?</h3>
-        <p><strong>Passos recomendados:</strong></p>
-        <ol>
-            <li>Tenha tudo registrado (metas, feedbacks, não-cumprimentos)</li>
-            <li>Reunião formal explicando a decisão</li>
-            <li>Carta de desligamento clara (motivo, % adquirido, % perdido)</li>
-            <li>Se for sócio: Reunião de Sócios formal + Ata + Apuração de haveres</li>
-            <li>Não demore - alinhamento rápido previne conflitos</li>
-        </ol>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>14. Como demitir alguém em vesting sem problemas jurídicos?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Passos recomendados:</strong></p>
+                <ol>
+                    <li>Tenha tudo registrado (metas, feedbacks, não-cumprimentos)</li>
+                    <li>Reunião formal explicando a decisão</li>
+                    <li>Carta de desligamento clara (motivo, % adquirido, % perdido)</li>
+                    <li>Se for sócio: Reunião de Sócios formal + Ata + Apuração de haveres</li>
+                    <li>Não demore - alinhamento rápido previne conflitos</li>
+                </ol>
+            </div>
+        </div>
 
-        <h3>15. Existe diferença tributária entre dividendo vs. venda de cota?</h3>
-        <p><strong>Resposta:</strong> SIM, grande diferença.</p>
-        <p><strong>Dividendos (enquanto sócio):</strong> Isento de IR para pessoa física</p>
-        <p><strong>Venda de cotas (ganho de capital):</strong> IR de 15% sobre o ganho</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>15. Existe diferença tributária entre dividendo vs. venda de cota?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> SIM, grande diferença.</p>
+                <p><strong>Dividendos (enquanto sócio):</strong> Isento de IR para pessoa física</p>
+                <p><strong>Venda de cotas (ganho de capital):</strong> IR de 15% sobre o ganho</p>
+            </div>
+        </div>
 
-        <h3>16. Quantos % reservar para Stock Options no total?</h3>
-        <p><strong>Resposta padrão:</strong> 10-20% do cap table para os primeiros 5 anos.</p>
-        <p><strong>Distribuição sugerida:</strong></p>
-        <ul>
-            <li>Founders: 70-80%</li>
-            <li>Co-founders e key hires: 10-15%</li>
-            <li>Advisors e conselheiros: 5-10%</li>
-            <li>Reserva para futuro: 5-10%</li>
-        </ul>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>16. Quantos % reservar para Stock Options no total?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta padrão:</strong> 10-20% do cap table para os primeiros 5 anos.</p>
+                <p><strong>Distribuição sugerida:</strong></p>
+                <ul>
+                    <li>Founders: 70-80%</li>
+                    <li>Co-founders e key hires: 10-15%</li>
+                    <li>Advisors e conselheiros: 5-10%</li>
+                    <li>Reserva para futuro: 5-10%</li>
+                </ul>
+            </div>
+        </div>
 
-        <h3>17. Preciso de um advogado?</h3>
-        <p><strong>Pode fazer sozinho (com templates):</strong></p>
-        <ul>
-            <li>Vesting simples entre 2-3 founders</li>
-            <li>Condições claras (só tempo)</li>
-            <li>Todos alinhados e confiáveis</li>
-        </ul>
-        <p><strong>Deve contratar advogado:</strong></p>
-        <ul>
-            <li>Vesting com executivos externos</li>
-            <li>Cláusulas complexas (metas, performance)</li>
-            <li>Empresa com investidores</li>
-            <li>Valor alto de equity envolvido</li>
-        </ul>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>17. Preciso de um advogado?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Pode fazer sozinho (com templates):</strong></p>
+                <ul>
+                    <li>Vesting simples entre 2-3 founders</li>
+                    <li>Condições claras (só tempo)</li>
+                    <li>Todos alinhados e confiáveis</li>
+                </ul>
+                <p><strong>Deve contratar advogado:</strong></p>
+                <ul>
+                    <li>Vesting com executivos externos</li>
+                    <li>Cláusulas complexas (metas, performance)</li>
+                    <li>Empresa com investidores</li>
+                    <li>Valor alto de equity envolvido</li>
+                </ul>
+            </div>
+        </div>
 
-        <h3>18. O que fazer se sócio ficar doente/afastado?</h3>
-        <p><strong>Opções comuns:</strong></p>
-        <p><strong>A) Suspensão do vesting:</strong> Período de afastamento "congela" o vesting. Ao voltar, retoma de onde parou.</p>
-        <p><strong>B) Continuidade:</strong> Afastamentos médicos (até 6 meses) não afetam vesting.</p>
-        <p><strong>C) Reavaliação:</strong> Afastamento longo (12+ meses) = renegociação.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>18. O que fazer se sócio ficar doente/afastado?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Opções comuns:</strong></p>
+                <p><strong>A) Suspensão do vesting:</strong> Período de afastamento "congela" o vesting. Ao voltar, retoma de onde parou.</p>
+                <p><strong>B) Continuidade:</strong> Afastamentos médicos (até 6 meses) não afetam vesting.</p>
+                <p><strong>C) Reavaliação:</strong> Afastamento longo (12+ meses) = renegociação.</p>
+            </div>
+        </div>
 
-        <h3>19. Posso mudar as condições após assinar?</h3>
-        <p><strong>Resposta:</strong> Só com concordância de ambas as partes (aditivo contratual).</p>
-        <p>Toda mudança deve ser formalizada por escrito, assinada, com data certa.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>19. Posso mudar as condições após assinar?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Resposta:</strong> Só com concordância de ambas as partes (aditivo contratual).</p>
+                <p>Toda mudança deve ser formalizada por escrito, assinada, com data certa.</p>
+            </div>
+        </div>
 
-        <h3>20. Como funciona vesting em caso de morte?</h3>
-        <p><strong>Opções usuais:</strong></p>
-        <p><strong>A) Aceleração total:</strong> Herdeiros recebem 100% imediatamente</p>
-        <p><strong>B) Aceleração parcial:</strong> Proporcional + 50% do restante</p>
-        <p><strong>C) Proporcional apenas:</strong> Mantém só o que foi adquirido</p>
-        <p><strong>D) Seguro:</strong> Empresa contrata seguro que cobre o vesting remanescente</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>20. Como funciona vesting em caso de morte?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Opções usuais:</strong></p>
+                <p><strong>A) Aceleração total:</strong> Herdeiros recebem 100% imediatamente</p>
+                <p><strong>B) Aceleração parcial:</strong> Proporcional + 50% do restante</p>
+                <p><strong>C) Proporcional apenas:</strong> Mantém só o que foi adquirido</p>
+                <p><strong>D) Seguro:</strong> Empresa contrata seguro que cobre o vesting remanescente</p>
+            </div>
+        </div>
 
-        <h3>21. Stock Option funciona para qualquer empresa?</h3>
-        <p><strong>Ideal para:</strong></p>
-        <ul>
-            <li>Startups tech</li>
-            <li>Empresas de alto crescimento</li>
-            <li>Negócios que precisam atrair talentos sem caixa</li>
-            <li>Empresas que planejam exit (venda/IPO)</li>
-        </ul>
-        <p><strong>Funciona, mas menos comum:</strong> Empresas tradicionais lucrativas, negócios familiares, empresas sem perspectiva de crescimento expressivo.</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>21. Stock Option funciona para qualquer empresa?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Ideal para:</strong></p>
+                <ul>
+                    <li>Startups tech</li>
+                    <li>Empresas de alto crescimento</li>
+                    <li>Negócios que precisam atrair talentos sem caixa</li>
+                    <li>Empresas que planejam exit (venda/IPO)</li>
+                </ul>
+                <p><strong>Funciona, mas menos comum:</strong> Empresas tradicionais lucrativas, negócios familiares, empresas sem perspectiva de crescimento expressivo.</p>
+            </div>
+        </div>
 
-        <h3>22. Qual diferença entre Stock Option e Vesting?</h3>
-        <p><strong>Vesting</strong> = conjunto de condições (tempo, metas) para adquirir equity progressivamente.</p>
-        <p><strong>Stock Option</strong> = contrato que concede direito de comprar ações/cotas no futuro, geralmente com vesting embutido.</p>
-        <p><strong>Resumo:</strong> Vesting é a mecânica. Stock Option é o instrumento legal que implementa o vesting (quando por fora do CNPJ).</p>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>22. Qual diferença entre Stock Option e Vesting?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Vesting</strong> = conjunto de condições (tempo, metas) para adquirir equity progressivamente.</p>
+                <p><strong>Stock Option</strong> = contrato que concede direito de comprar ações/cotas no futuro, geralmente com vesting embutido.</p>
+                <p><strong>Resumo:</strong> Vesting é a mecânica. Stock Option é o instrumento legal que implementa o vesting (quando por fora do CNPJ).</p>
+            </div>
+        </div>
 
         <hr>
 
@@ -745,5 +979,33 @@
             </p>
         </div>
     </div>
+
+    <script>
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+
+                    // Close all other FAQs (optional - remove these lines if you want multiple open at once)
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                    });
+                    document.querySelectorAll('.faq-answer').forEach(a => {
+                        a.classList.remove('active');
+                    });
+
+                    // Toggle current FAQ
+                    if (!isActive) {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
